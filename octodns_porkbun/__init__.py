@@ -342,7 +342,9 @@ class PorkbunProvider(BaseProvider):
         before = len(zone.records)
         for name, types in values.items():
             for _type, records in types.items():
-                record = self._record_for(zone, name, _type, records, lenient=lenient)
+                record = self._record_for(
+                    zone, name, _type, records, lenient=lenient
+                )
                 zone.add_record(record, lenient=lenient)
 
         exists = zone.name in self._zone_records
