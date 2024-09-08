@@ -5,15 +5,13 @@
 from collections import defaultdict
 from logging import getLogger
 from time import sleep
-from urllib.parse import urlsplit
 
 from requests import Session
 
 from octodns import __VERSION__ as octodns_version
-from octodns.idna import IdnaDict
-from octodns.provider import ProviderException, SupportsException
+from octodns.provider import ProviderException
 from octodns.provider.base import BaseProvider
-from octodns.record import Create, Record, Update
+from octodns.record import Record
 
 __version__ = '0.0.1'
 
@@ -316,10 +314,10 @@ class PorkbunProvider(BaseProvider):
         return {'ttl': records[0]['ttl'], 'type': _type, 'values': values}
 
     def _data_for_TLSA(self, _type, records):
-        raise NotImplemented()
+        raise NotImplementedError()
 
     def _data_for_HTTPS(self, _type, records):
-        raise NotImplemented()
+        raise NotImplementedError()
 
     def populate(self, zone, target=False, lenient=False):
         self.log.debug(
@@ -421,7 +419,7 @@ class PorkbunProvider(BaseProvider):
             }
 
     def _params_for_TLSA(self, record):
-        raise NotImplemented()
+        raise NotImplementedError()
 
     def _params_for_HTTPS(self, record):
         # for value in record.values:
@@ -431,7 +429,7 @@ class PorkbunProvider(BaseProvider):
         #         'ttl': record.ttl,
         #         'type': record._type,
         #     }
-        raise NotImplemented()
+        raise NotImplementedError()
 
     def zone_records(self, zone):
         if zone.name not in self._zone_records:
