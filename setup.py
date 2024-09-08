@@ -23,8 +23,8 @@ description, long_description = descriptions()
 tests_require = ('pytest', 'pytest-cov', 'pytest-network', 'requests_mock')
 
 setup(
-    author='Ross McFarland',
-    author_email='rwmcfa1@gmail.com',
+    author='Logan Linn',
+    author_email='logan@loganlinn.com',
     description=description,
     extras_require={
         'dev': tests_require
@@ -53,6 +53,6 @@ setup(
     packages=find_packages(),
     python_requires='>=3.6',
     tests_require=tests_require,
-    url='https://github.com/octodns/octodns-porkbun',
+    url='https://github.com/loganlinn/octodns-porkbun',
     version=version(),
 )
