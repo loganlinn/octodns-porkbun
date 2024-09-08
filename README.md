@@ -11,7 +11,7 @@ An [octoDNS](https://github.com/octodns/octodns/) provider that targets [Porkbun
 #### Command line
 
 ```
-pip install octodns-porkbun
+pip install git+https://github.com/loganlinn/octodns-porkbun
 ```
 
 #### requirements.txt/setup.py
